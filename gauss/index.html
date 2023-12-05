@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kalkulator Distribusi Normal</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.15/dist/tailwind.min.css" rel="stylesheet">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<style>
+  #ref-rumus {
+    display: none;
+  }
+</style>
+
+<body class="bg-gray-100">
+
+  <div class="container mx-auto px-4 py-8">
+    <h1 class="text-3xl font-bold mb-4">Kalkulator Distribusi Normal</h1>
+    <div class="flex gap-6 flex-wrap">
+      <div>
+        <div class="mb-4">
+          <label for="mean" class="block mb-1">Mean(μ):</label>
+          <input type="number" id="mean" step="any" class="border border-gray-300 rounded px-2 py-1">
+        </div>
+
+        <div class="mb-4">
+          <label for="stdDev" class="block mb-1">Standard Deviasi(σ):</label>
+          <input type="number" id="stdDev" step="any" class="border border-gray-300 rounded px-2 py-1">
+        </div>
+
+        <div class="mb-4">
+          <label for="x" class="block mb-1">Variabel Acak(X):</label>
+          <input type="number" id="x" step="any" class="border border-gray-300 rounded px-2 py-1">
+        </div>
+
+        <button onclick="hitung()" class="bg-blue-500 text-white py-2 px-4 rounded">Hasil</button>
+        <button onclick="rumus()" class="bg-blue-500 text-white py-2 px-4 rounded">Rumus</button>
+      </div>
+
+      <div id="ref-rumus" class="ref-rumus">
+        <p class="mb-2">\( \text{Notasi Rumus :} \)</p>
+        <p class="mb-2"> \( X \sim N(\mu, \sigma) \)</p>
+        <p class="mb-2">\( \text{Fungsi Kepadatan Probabilitas :} \)</p>
+        <div class="mb-2">
+          \( f(x) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{1}{2\sigma^2}(x-\mu)^2} \quad \)
+        </div>
+        <p class="mb-1">\( \text{Dimana :} \)</p>
+        <p class="ml-4">
+          \( f(x) \text{ = fungsi kepadatan probabilitas untuk variabel acak } x \) <br>
+          \( \mu \text{ = nilai rata-rata (mean) dari distribusi normal}\) <br>
+          \( \sigma \text{ = simpangan baku (standard deviation) dari distribusi normal}\)
+        </p>
+      </div>
+    </div>
+
+    <div id="chart" class="mt-8"></div>
+    <div id="result" class="mt-4"></div>
+
+  </div>
+
+  <script src="./script.js"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js">
+  </script>
+</body>
+
+</html>
